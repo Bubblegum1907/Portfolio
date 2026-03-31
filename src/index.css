@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  border-left: 2px solid black;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #FFD1DC; /* Kawaii Pink */
+  border: 2px solid black;
+}
+::selection {
+  background: #FFD1DC;
+  color: black;
+}
+
+.window-container {
+  border-radius: 12px; /* Smoother corners than the standard retro 95 */
+  border: 2px solid black;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.1); /* Soft shadow like the image */
+  overflow: hidden;
+}
+
+.window-header {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  /* 1. Target the layer that holds the windows */
+  .fixed.inset-0.pointer-events-none {
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 40px !important; /* Nice gap between stacked windows */
+    padding: 60px 20px 150px 20px !important;
+    pointer-events: auto !important; /* Critical for scrolling! */
+  }
+
+  /* 2. Target the individual windows and reset their 'Math' */
+  .absolute.pointer-events-auto {
+    position: relative !important; /* Switches from 'Desktop' to 'Document' flow */
+    left: 0 !important;           /* Ignores the useMemo X coordinate */
+    top: 0 !important;            /* Ignores the useMemo Y coordinate */
+    transform: none !important;
+    width: 100% !important;
+    max-width: 360px !important;  /* Keeps it 'Kawaii' sized on mobile */
+    margin: 0 auto !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  /* 1. We make the background scrollable just in case */
+  .fixed.inset-0.pointer-events-none {
+    overflow-y: auto !important;
+    padding-bottom: 100px;
+  }
+
+  /* 2. Scale everything down slightly so it fits the 'Viewport' */
+  .absolute.pointer-events-auto {
+    transform: scale(0.85) !important;
+    transform-origin: top center;
+  }
+
+  /* 3. Manual Override for the 'Cats' window so it doesn't fly off-screen */
+  /* Assuming 'cats' is your 3rd column */
+  [style*="z-index: 33"] { 
+    left: 50% !important;
+    transform: translateX(-50%) scale(0.85) !important;
+    top: 600px !important; /* Move it below the first two windows */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Slightly scale up the buttons for touch */
+  button {
+    min-height: 40px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  /* Prevent windows from overlapping during a resize transition */
+  .absolute.pointer-events-auto {
+    transition: all 0.3s ease;
+  }
+}
+
+.window-shadow {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1); /* Traditional Retro style */
+}
