@@ -23,7 +23,7 @@ export const projectDetails = {
     title: "IBA_OS v2.0",
     icon: "/icons/portfolio.png",
     description: "My personal 95-inspired OS portfolio. Features draggable windows, a functional mail client via EmailJS, and a custom z-index management system for a true desktop experience.",
-    github: "https://github.com/Bubblegum1907/portfolio-v2",
+    github: "https://github.com/Bubblegum1907/Portfolio",
     demo: "https://iba-shibli.com",
     media: ["/portfolio-preview.jpg"],
     tech: ["React", "Vite", "Tailwind", "EmailJS"]

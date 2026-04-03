@@ -172,10 +172,11 @@ function App() {
           position: 'absolute',
           left: positions.cats.x + 20,
           top: 500,
+          bottom: '60px',
           width: '340px',
           zIndex: 5 
         }}
-        className="hidden lg:block opacity-80 hover:opacity-100 transition-opacity pointer-events-none"
+        className="block opacity-80 hover:opacity-100 transition-opacity pointer-events-none"
       >
         <div className="border-[3px] border-[#222222] p-3 bg-white/20 backdrop-blur-sm font-mono text-[9px] shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
           <div className="flex justify-between border-b-2 border-[#222222] pb-1 mb-2 font-black uppercase tracking-widest">
@@ -187,7 +188,7 @@ function App() {
             {/* CGPA Progress Bar */}
             <div>
               <div className="flex justify-between mb-1 uppercase font-bold">
-                <span>Academic_Load</span>
+                <span>CGPA</span>
                 <span>6.85 / 10.0</span>
               </div>
               <div className="w-full h-3 border-2 border-[#222222] bg-white overflow-hidden">
@@ -293,7 +294,6 @@ function App() {
                 placeholder="EMAIL" 
               />
               
-              {/* Matches {{message}} in your screenshot */}
               <textarea 
                 name="message" 
                 required
@@ -410,7 +410,7 @@ function App() {
         </div>
       )}
 
-      {/* GIBBY_AI - Positioned in the Left Column */}
+      {/* GIBBY_AI */}
       {isAiOpen && (
         <div onMouseDown={() => bringToFront('ai')} style={{ zIndex: windowZIndices.ai || 80 }} className="absolute pointer-events-auto">
           <Window 
@@ -497,14 +497,22 @@ function App() {
           </div>
 
           <div className="flex flex-col">
+            {/* GitHub */}
             <a href="https://github.com/Bubblegum1907" target="_blank" className="p-3 hover:bg-[#B4F8C8] border-b-2 border-[#222222] font-bold text-xs flex items-center gap-3">
-              <span>📂</span> GitHub
+              <img src="/icons/github.png" alt="GitHub" className="w-4 h-4 object-contain" />
+              GitHub
             </a>
+
+            {/* LinkedIn */}
             <a href="https://www.linkedin.com/in/iba-shibli-277a37323/" target="_blank" className="p-3 hover:bg-[#B4F8C8] border-b-2 border-[#222222] font-bold text-xs flex items-center gap-3">
-              <span>👔</span> LinkedIn
+              <img src="/icons/linkedin.png" alt="LinkedIn" className="w-4 h-4 object-contain" />
+              LinkedIn
             </a>
+
+            {/* Instagram */}
             <a href="https://www.instagram.com/phoenix_69185/" target="_blank" className="p-3 hover:bg-[#B4F8C8] font-bold text-xs flex items-center gap-3">
-              <span>📸</span> Instagram
+              <img src="/icons/insta.png" alt="Instagram" className="w-4 h-4 object-contain" />
+              Instagram
             </a>
           </div>
         </div>
@@ -513,48 +521,75 @@ function App() {
       {/* 3. TASKBAR */}
       <div className="fixed bottom-0 left-0 w-full h-12 border-t-4 border-[#222222] flex items-center px-4 justify-between z-[100]" style={{ backgroundColor: kawaiiColors.pink }}>
         
-        <div className="flex gap-2"> {/* Wrapper to keep buttons together */}
+        <div className="flex gap-2">
           
           {/* SOCIALS BUTTON */}
           <button 
             onClick={() => setIsSocialsOpen(!isSocialsOpen)} 
-            className="bg-[#B0E0E6] px-4 h-9 border-[3px] border-[#222222] shadow-[4px_4px_0px_0px_black] hover:translate-y-[-1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center group"
+            className="bg-[#B0E0E6] 
+                      /* Responsive Sizing: Thinner but still wide enough */
+                      px-2 h-7 sm:px-4 sm:h-9 
+                      border-[2px] sm:border-[3px] border-[#222222] 
+                      shadow-[2px_2px_0px_0px_black] sm:shadow-[4px_4px_0px_0px_black] 
+                      flex items-center justify-center group"
           >
             <img 
               src="/icons/socials.png" 
               alt="Socials" 
-              className="w-5 h-5 object-contain group-hover:rotate-12 transition-transform"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               style={{ imageRendering: 'pixelated' }}
             />
-            <span className="ml-2 text-[10px] font-black uppercase tracking-tighter">Socials</span>
+            
+            <span className="ml-1 sm:ml-2 text-[8px] xs:text-[9px] sm:text-[10px] font-black uppercase tracking-tighter leading-none">
+              Socials
+            </span>
           </button>
 
           {/* SYSTEM BUTTON */}
           <button 
             onClick={() => setIsTechOpen(true)} 
-            className="bg-[#B0E0E6] px-4 h-9 border-[3px] border-[#222222] shadow-[4px_4px_0px_0px_black] hover:translate-y-[-1px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center group"
+            className="bg-[#B0E0E6] 
+                      /* Responsive Sizing: Thinner height for mobile */
+                      px-2 h-7 sm:px-4 sm:h-9 
+                      /* Scaled border and shadow to match */
+                      border-[2px] sm:border-[3px] border-[#222222] 
+                      shadow-[2px_2px_0px_0px_black] sm:shadow-[4px_4px_0px_0px_black] 
+                      hover:translate-y-[-1px] active:shadow-none 
+                      active:translate-x-[2px] active:translate-y-[2px] 
+                      transition-all flex items-center justify-center group"
           >
             <img 
               src="/icons/techstack.png" 
               alt="System" 
-              className="w-5 h-5 object-contain group-hover:rotate-12 transition-transform"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain group-hover:rotate-12 transition-transform"
               style={{ imageRendering: 'pixelated' }}
             />
-            <span className="ml-2 text-[10px] font-black uppercase tracking-tighter">System</span>
+            <span className="ml-1 sm:ml-2 text-[8px] xs:text-[9px] sm:text-[10px] font-black uppercase tracking-tighter leading-none">
+              System
+            </span>
           </button>
 
           {/* GIBBY_AI BUTTON */}
           <button 
             onClick={() => setIsAiOpen(true)} 
-            className="bg-[#B0E0E6] px-4 h-9 border-[3px] border-[#222222] shadow-[4px_4px_0px_0px_black] hover:bg-[#A1D1D7] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center group"
+            className="bg-[#B0E0E6] 
+                      /* Responsive Sizing */
+                      px-2 h-7 sm:px-4 sm:h-9 
+                      border-[2px] sm:border-[3px] border-[#222222] 
+                      shadow-[2px_2px_0px_0px_black] sm:shadow-[4px_4px_0px_0px_black] 
+                      hover:bg-[#A1D1D7] active:shadow-none 
+                      active:translate-x-[2px] active:translate-y-[2px] 
+                      transition-all flex items-center justify-center group"
           >
             <img 
-              src="/icons/portfolio.png" 
+              src="/icons/Gibby.png" 
               alt="Gibby AI" 
-              className="w-5 h-5 object-contain group-hover:scale-110 transition-transform"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain group-hover:scale-110 transition-transform"
               style={{ imageRendering: 'pixelated' }}
             />
-            <span className="ml-2 text-[10px] font-black uppercase tracking-tighter">Gibby_AI</span>
+            <span className="ml-1 sm:ml-2 text-[8px] xs:text-[9px] sm:text-[10px] font-black uppercase tracking-tighter leading-none">
+              Gibby_AI
+            </span>
           </button>
         </div>
 

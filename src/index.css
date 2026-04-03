@@ -8,7 +8,7 @@
   border-left: 2px solid black;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #FFD1DC; /* Kawaii Pink */
+  background: #FFD1DC;
   border: 2px solid black;
 }
 ::selection {
@@ -17,9 +17,9 @@
 }
 
 .window-container {
-  border-radius: 12px; /* Smoother corners than the standard retro 95 */
+  border-radius: 12px; 
   border: 2px solid black;
-  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.1); /* Soft shadow like the image */
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.1);
   overflow: hidden;
 }
 
@@ -35,25 +35,24 @@
 }
 
 @media (max-width: 768px) {
-  /* 1. Target the layer that holds the windows */
   .fixed.inset-0.pointer-events-none {
     overflow-y: auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 40px !important; /* Nice gap between stacked windows */
+    gap: 40px !important;
     padding: 60px 20px 150px 20px !important;
-    pointer-events: auto !important; /* Critical for scrolling! */
+    pointer-events: auto !important; 
   }
 
-  /* 2. Target the individual windows and reset their 'Math' */
+
   .absolute.pointer-events-auto {
-    position: relative !important; /* Switches from 'Desktop' to 'Document' flow */
-    left: 0 !important;           /* Ignores the useMemo X coordinate */
-    top: 0 !important;            /* Ignores the useMemo Y coordinate */
+    position: relative !important; 
+    left: 0 !important;         
+    top: 0 !important;           
     transform: none !important;
     width: 100% !important;
-    max-width: 360px !important;  /* Keeps it 'Kawaii' sized on mobile */
+    max-width: 360px !important;  
     margin: 0 auto !important;
   }
 }
@@ -65,18 +64,15 @@
     padding-bottom: 100px;
   }
 
-  /* 2. Scale everything down slightly so it fits the 'Viewport' */
   .absolute.pointer-events-auto {
     transform: scale(0.85) !important;
     transform-origin: top center;
   }
 
-  /* 3. Manual Override for the 'Cats' window so it doesn't fly off-screen */
-  /* Assuming 'cats' is your 3rd column */
   [style*="z-index: 33"] { 
     left: 50% !important;
     transform: translateX(-50%) scale(0.85) !important;
-    top: 600px !important; /* Move it below the first two windows */
+    top: 600px !important; 
   }
 }
 
@@ -88,12 +84,11 @@
     padding-right: 20px !important;
   }
   
-  /* Prevent windows from overlapping during a resize transition */
   .absolute.pointer-events-auto {
     transition: all 0.3s ease;
   }
 }
 
 .window-shadow {
-  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1); /* Traditional Retro style */
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1); 
 }
