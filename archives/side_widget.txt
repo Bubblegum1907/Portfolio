@@ -1,0 +1,48 @@
+      {/* SIDE WIDGET */}
+      <div 
+        style={{ 
+          position: 'absolute',
+          left: positions.cats.x + 20,
+          top: 500,
+          bottom: '60px',
+          width: '340px',
+          zIndex: 5 
+        }}
+        className="block opacity-80 hover:opacity-100 transition-opacity pointer-events-none"
+      >
+        <div className="border-[3px] border-[#222222] p-3 bg-white/20 backdrop-blur-sm font-mono text-[9px] shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
+          <div className="flex justify-between border-b-2 border-[#222222] pb-1 mb-2 font-black uppercase tracking-widest">
+            <span>System_Monitor</span>
+            <span className="animate-pulse">● LIVE</span>
+          </div>
+          
+          <div className="space-y-3">
+            {/* CGPA Progress Bar */}
+            <div>
+              <div className="flex justify-between mb-1 uppercase font-bold">
+                <span>CGPA</span>
+                <span>6.85 / 10.0</span>
+              </div>
+              <div className="w-full h-3 border-2 border-[#222222] bg-white overflow-hidden">
+                <div className="h-full bg-[#B4F8C8] w-[68.5%] border-r-2 border-[#222222]"></div>
+              </div>
+            </div>
+
+            {/* Other Stats */}
+            <div className="grid grid-cols-2 gap-2 text-[8px] font-bold uppercase">
+              <div className="p-1 border border-[#222222]/30 bg-white/40">
+                CPU_TEMP: <span className="text-pink-500">OPTIMAL</span>
+              </div>
+              <div className="p-1 border border-[#222222]/30 bg-white/40">
+                MEMORY: 1907MB
+              </div>
+              <div className="p-1 border border-[#222222]/30 bg-white/40">
+                UPLINK: ACTIVE
+              </div>
+              <div className="p-1 border border-[#222222]/30 bg-white/40">
+                VIBE: 100%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
